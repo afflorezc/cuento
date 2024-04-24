@@ -13,13 +13,34 @@ import java.util.ArrayList;
 public class PDFBill {
 
     public static void main(String[] args) {
+        Bill bill = new Bill("motos", "34636357", "empresaDeMotos@gmail.com","355 68332224");
+        Item item1 = new Item("1","moto1",33333);
+        Item item2 = new Item("2","moto2",122343);
+        Item item3 = new Item("3","moto3",66789);
+        Item item4 = new Item("4","moto4",234865);
+        Item item5 = new Item("5","moto5",99876);
+        Item item6 = new Item("6","moto6",397486);
+        Item item7 = new Item("7","moto7",9557657);
+
+        bill.addItem(item1);
+        bill.addItem(item2);
+        bill.addItem(item3);
+        bill.addItem(item4);
+        bill.addItem(item5);
+        bill.addItem(item6);
+        bill.addItem(item7);
+
+        bill.calculateIVA();
+        bill.calculateBasePrice();
+
+        generatePDFBill(bill);
 
     }
-    public void generatePDFBill(Bill bill){
+    public static void generatePDFBill(Bill bill){
         try{
             Document pdfDocument = new Document();
 
-            PdfWriter.getInstance(pdfDocument , new FileOutputStream("factura.pdf"));
+            PdfWriter.getInstance(pdfDocument , new FileOutputStream("cuento\\factura.pdf"));
 
             pdfDocument.open();
 
@@ -28,30 +49,33 @@ public class PDFBill {
 
             PdfPTable header = new PdfPTable(2); // creando el header
 
-            PdfPCell imageCell = new PdfPCell(logo); // añadiendo la imagen a un celda
-            imageCell.setBorder(0);
-
-            PdfPTable headerInfo = new PdfPTable(2); // creando el contenedor del texto del header
-
             String dataBillString = "Fecha de facturación: " + LocalDateTime.now() + "\n Numero de factura" + bill.getBillNumber();
             String dataCompanyString = "Compañia: " + bill.getCompanyName()+ "\n" + "Email: " + bill.getCompanyAddress() + "\n" + "Nit: " +  bill.getCompanyNIT() + "\n" + "Teléfono: " + bill.getBillNumber();
 
-            PdfPCell dataBillcell = new PdfPCell(new Phrase(dataBillString));
             PdfPCell dataCompany = new PdfPCell(new Phrase(dataCompanyString));
+            PdfPCell dataBillcell = new PdfPCell(new Phrase(dataBillString));
 
-            headerInfo.addCell(dataCompany); // añadiendo el texto al contenedor del header
-            headerInfo.addCell(dataBillcell);
+            dataBillcell.setBorder(0);
+            dataCompany.setBorder(0);
 
-            header.addCell(logo); //añadiendo los elementos al header
-            header.addCell(headerInfo);
+            header.addCell(dataCompany);
+            header.addCell(dataBillcell); //añadiendo los elementos al header
+
 
             PdfPTable billTable = createBillTable(bill.getItems()); //creando la tabla de factura
 
             Font totalFont = FontFactory.getFont(BaseFont.HELVETICA_BOLD);
             Paragraph totalTitle = new Paragraph("TOTAL", totalFont);
+            totalTitle.setSpacingAfter(5);
+            totalTitle.setAlignment(1);
 
-            PdfPTable totalTable = createTotalTable(bill.getBasePrice(), bill.getIvaValue(), bill.getPrice());
+            PdfPTable totalTable = createTotalTable(bill.getBasePrice(), bill.getIvaValue(), bill.getBasePrice()+bill.getIvaValue());
 
+            header.setWidthPercentage(100f);
+            billTable.setWidthPercentage(100f);
+            totalTable.setWidthPercentage(100f);
+
+            pdfDocument.add(logo);
             pdfDocument.add(header);
             pdfDocument.add(billTable);
             pdfDocument.add(totalTitle);
@@ -103,17 +127,17 @@ public class PDFBill {
         billTable.addCell(total);
 
 
-        float totalAcumulated = 0f;
+        Float totalAcumulated = 0f;
 
-        for (int i = 0; i< items.size(); i++){
-            totalAcumulated += items.get(i).getPrice();
+        for (int i = 0; i < items.size(); i++){
+            totalAcumulated += items.get(i).getIva() + items.get(i).getBasePrice();
 
             PdfPCell auxCellID = new PdfPCell(new Phrase(items.get(i).getId()));
             PdfPCell auxNameItem = new PdfPCell(new Phrase(items.get(i).getItemName()));
             PdfPCell auxBasePrice = new PdfPCell(new Phrase(""+items.get(i).getBasePrice()));
             PdfPCell auxIva = new PdfPCell(new Phrase(""+items.get(i).getIva()));
-            PdfPCell auxPrice = new PdfPCell(new Phrase(""+items.get(i).getPrice()));
-            PdfPCell auxTotal = new PdfPCell(new Phrase(""+totalAcumulated));
+            PdfPCell auxPrice = new PdfPCell(new Phrase(""+(items.get(i).getIva() + items.get(i).getBasePrice())));
+            PdfPCell auxTotal = new PdfPCell(new Phrase(""+totalAcumulated.toString()));
 
             auxCellID.setBorder(0);
             auxCellID.setBackgroundColor(new BaseColor(180,180,180));
@@ -143,7 +167,7 @@ public class PDFBill {
     }
 
 
-    public PdfPTable createTotalTable(float baseTotal, float iva, float total){
+    public static PdfPTable createTotalTable(float baseTotal, float iva, float total){
         PdfPTable totalTable = new PdfPTable(6); // creando tabla del total
 
         PdfPCell voidCell = new PdfPCell();
