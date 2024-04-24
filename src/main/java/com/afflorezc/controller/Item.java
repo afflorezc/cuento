@@ -6,7 +6,7 @@ public class Item {
     private String itemName;
     private float basePrice;
     private float price;
-    private float iva;
+    private float iva = 0.19f;
 
     public Item() {
     }

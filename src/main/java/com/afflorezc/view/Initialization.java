@@ -2,7 +2,7 @@ package com.afflorezc.view;
 
 import javax.swing.*;
 import java.awt.*;
-import javafx.embed.swing.JFXPanel;
+//import javafx.embed.swing.JFXPanel;
 
 
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import com.afflorezc.model.VehicleInformation;
 import com.afflorezc.controller.ExcelLoader;
 
 public class Initialization extends JFrame {
-
+/*
     private static final String VIDEO_PATH = "files\\video\\SheldonDante.mp4";
     private final JFXPanel JFX_PANEL = new JFXPanel();
 
@@ -44,4 +44,6 @@ public class Initialization extends JFrame {
     public static void main(String[] args) {
         new Initialization();
     }
+
+ */
 }
