@@ -44,8 +44,8 @@ public class PDFBill {
 
             pdfDocument.open();
 
-            Image logo = Image.getInstance("cuento\\files\\img\\logo.jpg"); //creando la imagen del logo
-            logo.scaleAbsolute(30,30);
+            Image logo = Image.getInstance("cuento\\files\\img\\logo4.jpg"); //creando la imagen del logo
+            logo.scaleAbsolute(50,50);
 
             PdfPTable header = new PdfPTable(2); // creando el header
 
