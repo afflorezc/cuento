@@ -36,8 +36,8 @@ public class Principal extends  JFrame{
         buttonNext.setForeground(new Color(169,255,255));
         buttonNext.setFocusPainted(false);
         buttonNext.setFont(new Font("DejaVu Sans", Font.PLAIN, 14));
-        imagesPanel.setBackground(new Color(243,232,202));
-        ppalPanel.setBackground(new Color(243,232,202));
+        imagesPanel.setBackground(new Color(255, 233, 173));
+        ppalPanel.setBackground(new Color(255, 233, 173));
 
         ppalPanel.add(imagesPanel);
         ppalPanel.add(panelButton);
