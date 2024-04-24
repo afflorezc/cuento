@@ -25,11 +25,12 @@ public class Main {
 
     public static int[] getColumnIndexes(ArrayList<String> columnNames){
 
-        int[] indexes = new int[6];
+        int numColumns = DATA_SET_NAMES.length;
+        int[] indexes = new int[numColumns];
         int currentIndex = 0;
         int columnIndex = 0;
         for(String name: columnNames){
-            if(currentIndex > 5){
+            if(currentIndex > numColumns-1){
                 break;
             }
             if(name.equals(DATA_SET_NAMES[currentIndex])){

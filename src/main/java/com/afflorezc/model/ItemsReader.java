@@ -33,6 +33,7 @@ public class ItemsReader {
             
             Workbook book = WorkbookFactory.create(file);
             Sheet sheet = book.getSheet(sheetName);
+            int totalColumns = columnIndexes.length;
             for (Row row : sheet) {
                 if(row.getRowNum()==0){
                     continue;
@@ -40,14 +41,24 @@ public class ItemsReader {
                 int currentIndex = 0;
                 int matches = 0;
                 for (Cell cell : row) {
-                    if(currentIndex > 5){
+                    if(currentIndex > totalColumns-1){
                         break;
                     }
                     if(cell.getColumnIndex() == columnIndexes[currentIndex]){
                         String text = cell.getStringCellValue();
                         if(matches >=3){
+                            if(matches == 3){
+                                System.out.print(dataFilters.get(0) + "\t");
+                                System.out.print(dataFilters.get(2) + "\t");
+                            }
+                            switch (currentIndex) {
+                                case 4 -> System.out.print("Price: ");
+                                case 5 -> System.out.print("Power: ");
+                                case 6 -> System.out.print("c.c: ");
+                            }
                             System.out.print(text + "\t");
-                            if(currentIndex >= 5){
+                            matches++;
+                            if(currentIndex >= totalColumns-1){
                                 System.out.println();
                             }
                         }
