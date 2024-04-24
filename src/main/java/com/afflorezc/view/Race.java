@@ -14,13 +14,14 @@ public class Race extends JFrame{
 	Circuit circuitTrack;
 	JPanel infoPanel;
 	JButton raceButton;
+	JButton nextButton;
 	
 	public Race() {
 		 
 		super("La gran carrera");
 		// Main container
 		ppalPanel = getContentPane();
-		ppalPanel.setBackground(Color.white.brighter());
+		ppalPanel.setBackground(new Color(255, 233, 173));
 		GridLayout ppalLayout = new GridLayout();
 		ppalLayout.setHgap(PADDING);
 		ppalLayout.setVgap(PADDING);
@@ -39,7 +40,7 @@ public class Race extends JFrame{
 		JPanel tablePanel = new JPanel();
 		GridLayout tablesLayout = new GridLayout(4, 1);
 		tablePanel.setLayout(tablesLayout);
-		tablePanel.setBackground(Color.white.brighter());
+		tablePanel.setBackground(new Color(255, 233, 173));
 		// Label for the lap race
 		JLabel lapLabel = new JLabel();
 		lapLabel.setFont(new Font("DejaVu Sans", Font.PLAIN, 14));
@@ -50,10 +51,12 @@ public class Race extends JFrame{
 		finalResultLabel.setText("Final Results: ");
 		// Results Table
 		JTable positionInfo = new JTable(new DefaultTableModel());
+		positionInfo.setBackground(new Color(255, 233, 173));
 		positionInfo.setShowHorizontalLines(true);
 		positionInfo.setShowVerticalLines(true);
 		// Final position Table
 		JTable endResults = new JTable(new DefaultTableModel());
+		endResults.setBackground(new Color(255, 233, 173));
 		endResults.setShowHorizontalLines(true);
 		endResults.setShowVerticalLines(true);
 		tablePanel.add(lapLabel);
@@ -62,7 +65,7 @@ public class Race extends JFrame{
 		tablePanel.add(endResults);
 		// Panel for the button
 		JPanel panelButton = new JPanel();
-		panelButton.setBackground(Color.white.brighter());
+		panelButton.setBackground(new Color(255, 233, 173));
 		// Simulate the race: Button
 		raceButton = new JButton("Start race");
 		raceButton.addActionListener(new RunRace(circuitTrack, tablePanel));
@@ -70,9 +73,17 @@ public class Race extends JFrame{
         raceButton.setBackground(new Color(169, 0, 0));
         raceButton.setForeground(new Color(169,255,255));
         raceButton.setFocusPainted(false);
+		// Next button: 
+		nextButton = new JButton("Siguiente");
+		nextButton.addActionListener(new RunRace(circuitTrack, tablePanel));
+		nextButton.setSize(60, 40);
+        nextButton.setBackground(new Color(169, 0, 0));
+        nextButton.setForeground(new Color(169,255,255));
+        nextButton.setFocusPainted(false);
 		panelButton.add(raceButton);
+		panelButton.add(nextButton);
 		// Adding components to info Panel
-		infoPanel.setBackground(Color.white.brighter());
+		infoPanel.setBackground(new Color(255, 233, 173));
 		infoPanel.add(tablePanel);
 		infoPanel.add(panelButton);
 		// Adding components to main container
@@ -277,12 +288,13 @@ class Circuit extends JPanel{
 	Circuit(){
 		
 		this.setSize(WIDTH + 2*PADDING, HEIGHT +2*PADDING);
-		this.setBackground(Color.white.brighter());
+		this.setLocation(PADDING, PADDING);
+		this.setBackground(new Color(255, 233, 173));
 		// Set pilots
 		this.pilots = new Pilot[3];
-		pilots[0] = new Pilot("Juan", 5, Color.red.darker());
-		pilots[1] = new Pilot("Pedro", 10, Color.blue.brighter());
-		pilots[2] = new Pilot("Patricio", 7, Color.cyan.darker());
+		pilots[0] = new Pilot("Howard", 5, Color.red.darker());
+		pilots[1] = new Pilot("Dante", 10, Color.blue.brighter());
+		pilots[2] = new Pilot("Sheldon", 7, Color.cyan.darker());
 		// Set initial positions for cars
 		int[] pos = this.getPosition(0);
 		for(int i=0;i<3;i++) {
