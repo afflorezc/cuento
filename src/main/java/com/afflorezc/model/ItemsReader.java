@@ -6,6 +6,8 @@ import java.util.ArrayList;
 
 import org.apache.poi.ss.usermodel.*;
 
+import com.afflorezc.model.VehicleInformation;
+
 public class ItemsReader {
 
     public ArrayList<String> readColumnNames(String path, String sheetName){
@@ -27,21 +29,32 @@ public class ItemsReader {
         return columnNames;
     }
 
-    public void readExcelFile(String path, String sheetName, int[] columnIndexes, ArrayList<String> dataFilters){
+    public ArrayList<VehicleInformation> readExcelFile(String path, String sheetName, int[] columnIndexes, 
+                                    ArrayList<String> dataFilters){
 
+        ArrayList<VehicleInformation> motorcicleData = new ArrayList<VehicleInformation>();
         try (FileInputStream file = new FileInputStream(path)) {
             
             Workbook book = WorkbookFactory.create(file);
             Sheet sheet = book.getSheet(sheetName);
             int totalColumns = columnIndexes.length;
+            String tradeMark =  dataFilters.get(0); 
+            String description = dataFilters.get(2) + " ";
             for (Row row : sheet) {
                 if(row.getRowNum()==0){
                     continue;
                 }
                 int currentIndex = 0;
                 int matches = 0;
+                float price =0.0f;
+                int power = 0;
+                int cylinderCapacity = 0;
                 for (Cell cell : row) {
                     if(currentIndex > totalColumns-1){
+                        if(power > 150){
+                            motorcicleData.add(new VehicleInformation(tradeMark, 
+                                                        description, price, power, cylinderCapacity));
+                        }
                         break;
                     }
                     if(cell.getColumnIndex() == columnIndexes[currentIndex]){
@@ -52,9 +65,9 @@ public class ItemsReader {
                                 System.out.print(dataFilters.get(2) + "\t");
                             }
                             switch (currentIndex) {
-                                case 4 -> System.out.print("Price: ");
-                                case 5 -> System.out.print("Power: ");
-                                case 6 -> System.out.print("c.c: ");
+                                case 4 -> price = Float.parseFloat(text);
+                                case 5 -> power = Integer.parseInt(text);
+                                case 6 -> cylinderCapacity = Integer.parseInt(text);
                             }
                             System.out.print(text + "\t");
                             matches++;
@@ -74,7 +87,7 @@ public class ItemsReader {
             System.out.println(ex.getMessage());
             ex.printStackTrace();
         }
+        return motorcicleData;
     }
-
 
 }

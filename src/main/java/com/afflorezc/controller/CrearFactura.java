@@ -19,8 +19,8 @@ public class CrearFactura {
 
             pdfDocument.open();
 
-            Image logo = Image.getInstance("moto.jpg");
-            logo.scaleAbsolute(30,30);
+            Image logo = Image.getInstance("files\\img\\logo3.jpg");
+            logo.scaleAbsolute(50,50);
 
             Font bodyFont = FontFactory.getFont(BaseFont.HELVETICA, 12, BaseColor.BLACK);
 
