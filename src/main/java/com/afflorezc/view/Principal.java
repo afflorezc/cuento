@@ -9,41 +9,39 @@ import com.afflorezc.view.components.*;
 
 public class Principal extends  JFrame{
 
+    
     public Principal(){
         super("Principal");
 
+        Container ppalPanel = getContentPane();
 
-        JPanel panel = new JPanel();
-
-        ImageContainer fotoSheldon = new ImageContainer("cuento\\src\\main\\java\\com\\afflorezc\\view\\images\\sheldonCern.png", 350, 250, true);
-        ImageContainer fotoDante = new ImageContainer("cuento\\src\\main\\java\\com\\afflorezc\\view\\images\\DevilMayCry3_figma.jpg", 350, 250, false);
-
+        ImageContainer sheldonPhoto = new ImageContainer("src\\main\\java\\com\\afflorezc\\view\\images\\sheldonCern.png", 350, 250, true);
+        ImageContainer dantePhoto = new ImageContainer("src\\main\\java\\com\\afflorezc\\view\\images\\DevilMayCry3_figma.jpg", 350, 250, false);
         JButton buttonNext = new JButton("Siguiente");
 
         JPanel imagesPanel = new JPanel();
         imagesPanel.setLayout(new BoxLayout(imagesPanel, BoxLayout.X_AXIS));
 
-        panel.setLayout(new BoxLayout(panel, BoxLayout.Y_AXIS));
+        ppalPanel.setLayout(new BoxLayout(ppalPanel, BoxLayout.Y_AXIS));
 
-        imagesPanel.add(fotoSheldon);
-        imagesPanel.add(fotoDante);
+        imagesPanel.add(sheldonPhoto);
+        imagesPanel.add(dantePhoto);
 
         JPanel panelButton = new JPanel();
         panelButton.setLayout(new BoxLayout(panelButton, BoxLayout.X_AXIS));
-
+    
         panelButton.add(buttonNext);
 
         buttonNext.setBackground(new Color(169, 0, 0));
-        //buttonNext.setFont(new Font());
-
-
-        panel.add(imagesPanel);
-        panel.add(panelButton);
-
-        this.add(panel);
-
+        buttonNext.setForeground(new Color(169,255,255));
+        buttonNext.setFocusPainted(false);
+        buttonNext.setFont(new Font("DejaVu Sans", Font.PLAIN, 14));
         imagesPanel.setBackground(new Color(243,232,202));
-        panel.setBackground(new Color(243,232,202));
+        ppalPanel.setBackground(new Color(243,232,202));
+
+        ppalPanel.add(imagesPanel);
+        ppalPanel.add(panelButton);
+        //this.add(ppalPanel);
 
         setLocation(300, 80);
         setVisible(true);
@@ -52,7 +50,7 @@ public class Principal extends  JFrame{
     }
 
     public static void main(String[] args) {
-        Principal pantalla = new Principal();
+        new Principal();
     }
 
 }

@@ -12,7 +12,7 @@ public class Main {
 
     static final ArrayList<String> DATA_SET_FILTER = new ArrayList<String>(
                                                    Arrays.asList("KAWASAKI", "MOTOCICLETA", "NINJA"));
-    static final String PATH = "cuento\\files\\Guia_Excel_331.xls";
+    static final String PATH = "files\\Guia_Excel_331.xls";
     static final String SHEET_NAME = "Codigos";
     public static void main(String[] args) {
 
