@@ -66,6 +66,6 @@ public class selectMotorcicle extends JFrame {
     }
 
     public static void main(String[] args) {
-        new selectMotorcicle();
+        //new selectMotorcicle();
     }
 }
