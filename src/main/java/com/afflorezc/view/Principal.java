@@ -15,8 +15,8 @@ public class Principal extends  JFrame{
 
         Container ppalPanel = getContentPane();
 
-        ImageContainer sheldonPhoto = new ImageContainer("src\\main\\java\\com\\afflorezc\\view\\images\\sheldonCern.png", 350, 250, true);
-        ImageContainer dantePhoto = new ImageContainer("src\\main\\java\\com\\afflorezc\\view\\images\\DevilMayCry3_figma.jpg", 350, 250, false);
+        ImageContainer sheldonPhoto = new ImageContainer("cuento\\src\\main\\java\\com\\afflorezc\\view\\images\\sheldonCern.png", 350, 250, true);
+        ImageContainer dantePhoto = new ImageContainer("cuento\\src\\main\\java\\com\\afflorezc\\view\\images\\DevilMayCry3_figma.jpg", 350, 250, false);
         JButton buttonNext = new JButton("Siguiente");
 
         JPanel imagesPanel = new JPanel();

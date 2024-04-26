@@ -25,7 +25,7 @@ public class BillTest {
 
         bill.addItem(item1);
         bill.addItem(item2);
-        bill.calculateBasePrice();                   
+        bill.calculateBasePrice();
         Assertions.assertEquals(18945844.0f, bill.getBasePrice());
     }
  
