@@ -9,7 +9,7 @@ import com.afflorezc.view.components.*;
 
 import java.util.ArrayList;
 
-public class SelectMotorcicle extends JFrame {
+public class SelectMotorcicle extends JFrame{
 
     static final int GUI_WIDTH = 800;
 	static final int GUI_HEIGHT = 500;
@@ -93,8 +93,6 @@ public class SelectMotorcicle extends JFrame {
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
     }
 
-<<<<<<< HEAD
-=======
     public void updateMotorcicleData(){
 
         VehicleInformation motorcicle = this.motorcicles.get(index);
@@ -133,6 +131,5 @@ class SelectionChange implements ActionListener{
         }
         frame.updateMotorcicleData();
     }
->>>>>>> 0ee6f1dd307e564a696a83e3c6f4aaf105097319
 
 }

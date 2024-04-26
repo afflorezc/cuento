@@ -31,14 +31,10 @@ public class ComponentsBuilder {
         label.setText(text);
         return label;
     }
-/*
+
     public Container buildContainer(){
 
-<<<<<<< HEAD
-        Container panel = getContentPanel();
-=======
         Container panel = new Container();
->>>>>>> 0ee6f1dd307e564a696a83e3c6f4aaf105097319
         panel.setBackground(styles.getBackGround());
         
         if(!panel.isOpaque()){
