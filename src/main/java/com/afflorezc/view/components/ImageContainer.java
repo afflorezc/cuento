@@ -18,6 +18,12 @@ public class ImageContainer extends JPanel{
 
     }
 
+    public void setImage(String imageLocation){
+
+        this.image = new ImageIcon(imageLocation).getImage();
+        this.repaint();
+    }
+
     @Override
     public void paint(Graphics g){
         int x = 0;

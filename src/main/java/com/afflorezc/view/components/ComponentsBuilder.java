@@ -34,8 +34,38 @@ public class ComponentsBuilder {
 
     public Container buildContainer(){
 
-        Container panel = getContentPane();
+        Container panel = new Container();
         panel.setBackground(styles.getBackGround());
+        
+        if(!panel.isOpaque()){
+            System.out.println("No es opaco!");
+        }
+        return panel;
+    }
+
+    public JPanel buildJPanel(){
+
+        JPanel panel = new JPanel();
+        panel.setBackground(styles.getBackGround());
+        return panel;
+    }
+
+    public JButton buildButton(){
+
+        JButton button = new JButton();
+        button.setBackground(styles.getButtonBackGround());
+        button.setForeground(styles.getButtonForeGround());
+        button.setFont(styles.getButtonFont());
+        button.setFocusPainted(false);
+        button.setSize(50, 15);
+        return button;
+    }
+
+    public JButton buildButton(String text){
+
+        JButton button = this.buildButton();
+        button.setText(text);
+        return button;
     }
 
 }

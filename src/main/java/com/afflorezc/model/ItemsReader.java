@@ -39,11 +39,12 @@ public class ItemsReader {
             Sheet sheet = book.getSheet(sheetName);
             int totalColumns = columnIndexes.length;
             String tradeMark =  dataFilters.get(0); 
-            String description = dataFilters.get(2) + " ";
+            
             for (Row row : sheet) {
                 if(row.getRowNum()==0){
                     continue;
                 }
+                String description = dataFilters.get(2) + " ";
                 int currentIndex = 0;
                 int matches = 0;
                 float price =0.0f;
@@ -65,6 +66,7 @@ public class ItemsReader {
                                 System.out.print(dataFilters.get(2) + "\t");
                             }
                             switch (currentIndex) {
+                                case 3 -> description += text;
                                 case 4 -> price = Float.parseFloat(text);
                                 case 5 -> power = Integer.parseInt(text);
                                 case 6 -> cylinderCapacity = Integer.parseInt(text);
