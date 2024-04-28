@@ -113,18 +113,23 @@ public class Race extends JFrame{
 	}
 
     public static void main(String[] args){
-
-		Color backGround = new Color(255, 233, 173);
-		Color foreGround = new Color(169,255,255);
-		Color buttonBackGround = new Color(169, 0, 0);
-		Color buttonForeGround = new Color(169,255,255);
-		Font titlesFont = new Font("DejaVu Sans", Font.PLAIN, 20);
-		Font contentFont = new Font("DejaVu Sans", Font.PLAIN, 14);
-		Font buttonFont = new Font("DejaVu Sans", Font.PLAIN, 14);
-		int padding = 20;
-		Styles styles = new Styles(backGround, foreGround, buttonBackGround, buttonForeGround,
-		                               titlesFont, contentFont, buttonFont, padding);
+        
+        Styles styles = getStyles();
         new Race(styles);
+    }
+    
+    public static Styles getStyles(){
+        Color backGround = new Color(255, 233, 173);
+	Color foreGround = new Color(169,255,255);
+	Color buttonBackGround = new Color(169, 0, 0);
+	Color buttonForeGround = new Color(169,255,255);
+	Font titlesFont = new Font("DejaVu Sans", Font.PLAIN, 20);
+	Font contentFont = new Font("DejaVu Sans", Font.PLAIN, 14);
+	Font buttonFont = new Font("DejaVu Sans", Font.PLAIN, 14);
+	int padding = 20;
+        Styles styles = new Styles(backGround, foreGround, buttonBackGround, buttonForeGround,
+                                    titlesFont, contentFont, buttonFont, padding);
+        return styles;
     }
 	
 }

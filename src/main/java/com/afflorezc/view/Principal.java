@@ -17,7 +17,7 @@ public class Principal extends  JFrame{
         Container ppalPanel = getContentPane();
 
         ImageContainer sheldonPhoto = new ImageContainer(LocalPaths.IMAGESPATH+"sheldonCern.png", 350, 250);
-        ImageContainer dantePhoto = new ImageContainer(LocalPaths.IMAGESPATH+"DevilMayCry3_figma.jpg", 350, 250);
+        ImageContainer dantePhoto = new ImageContainer(LocalPaths.IMAGESPATH+"DevilMayCry3.jpg", 350, 250);
 
         dantePhoto.setHorizonralAlingment(ImageContainer.CENTERALIGNMENT);
         dantePhoto.setVerticalAlingment(ImageContainer.CENTERALIGNMENT);
