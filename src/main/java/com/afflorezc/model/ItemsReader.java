@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 import org.apache.poi.ss.usermodel.*;
 
-import com.afflorezc.model.VehicleInformation;
+//import com.afflorezc.model.VehicleInformation;
 
 public class ItemsReader {
 

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 public class SelectMotorcicle extends JFrame{
 
     static final int GUI_WIDTH = 800;
-	static final int GUI_HEIGHT = 500;
+	static final int GUI_HEIGHT = 600;
 	static final int PADDING = 20;
     static final String[] IMAGES = {"files\\img\\Kawasaki-z900.png", "files\\img\\kawasaki-zx-10r.png",
                                         "files\\img\\kawasaki zx-10r2.jpg", "files\\img\\kawasaki h2.jpg",
@@ -76,7 +76,7 @@ public class SelectMotorcicle extends JFrame{
         rightButton.addActionListener(new SelectionChange(this, true));
         rightBtnPanel.add(rightButton);
         // Image
-        ImageContainer motorcyclePhoto = new ImageContainer(IMAGES[index], 150, 150, true);
+        ImageContainer motorcyclePhoto = new ImageContainer(IMAGES[index], 350, 250, true);
         // Add 
         imagePanel.add(leftBtnPanel);
         imagePanel.add(motorcyclePhoto);
