@@ -12,7 +12,7 @@
             "mainClass": "com.afflorezc.view.Player",
             "args": [
                 "--module-path",
-                "C:\\Users\\admiin\\Documents\\Instaladores\\Javafx\\javafx-sdk-20.0.2\\lib",
+                "C:\\Users\\admiin\\.m2\\repository\\org\\openjfx",
                 "--add-modules",
                 "javafx.controls",
                 "javafx.fxml"
