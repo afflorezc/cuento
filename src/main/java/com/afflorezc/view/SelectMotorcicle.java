@@ -4,6 +4,7 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 
+import com.afflorezc.controller.LocalPaths;
 import com.afflorezc.model.VehicleInformation;
 import com.afflorezc.view.components.*;
 
@@ -12,11 +13,11 @@ import java.util.ArrayList;
 public class SelectMotorcicle extends JFrame{
 
     static final int GUI_WIDTH = 800;
-	static final int GUI_HEIGHT = 500;
+	static final int GUI_HEIGHT = 600;
 	static final int PADDING = 20;
-    static final String[] IMAGES = {"files\\img\\Kawasaki-z900.png", "files\\img\\kawasaki-zx-10r.png",
-                                        "files\\img\\kawasaki zx-10r2.jpg", "files\\img\\kawasaki h2.jpg",
-                                         "files\\img\\kawasaki-zx-10r-3.png"};
+    static final String[] IMAGES = {LocalPaths.IMAGESPATH+"Kawasaki-z900.png", LocalPaths.IMAGESPATH+"kawasaki-zx-10r.png",
+                                    LocalPaths.IMAGESPATH+"kawasaki zx-10r2.jpg", LocalPaths.IMAGESPATH+"kawasaki h2.jpg",
+                                    LocalPaths.IMAGESPATH+"kawasaki-zx-10r-3.png"};
     private ComponentsBuilder builder;
     ArrayList<VehicleInformation> motorcicles;
     int index = 0;
