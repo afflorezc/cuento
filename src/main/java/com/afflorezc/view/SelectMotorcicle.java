@@ -76,7 +76,7 @@ public class SelectMotorcicle extends JFrame{
         rightButton.addActionListener(new SelectionChange(this, true));
         rightBtnPanel.add(rightButton);
         // Image
-        ImageContainer motorcyclePhoto = new ImageContainer(IMAGES[index], 150, 150, true);
+        ImageContainer motorcyclePhoto = new ImageContainer(IMAGES[index], 150, 150);
         // Add 
         imagePanel.add(leftBtnPanel);
         imagePanel.add(motorcyclePhoto);

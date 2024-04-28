@@ -1,5 +1,6 @@
 package com.afflorezc.model;
 
+import com.afflorezc.controller.LocalPaths;
 import com.afflorezc.controller.Session;
 import com.google.gson.*;
 import java.io.*;
@@ -15,7 +16,7 @@ public class JsonManagement {
     /**
      * @param args the command line arguments
      */
-    public static final String JSONPATH = "cuento\\files\\Json\\sessions.json";
+    public static final String JSONPATH = LocalPaths.JSONPATH+"sessions.json";
 
     public static void main(String[] args) {
         /*
