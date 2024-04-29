@@ -1,9 +1,14 @@
 package com.afflorezc.controller;
 
 import com.itextpdf.text.*;
+import com.itextpdf.text.Font;
+import com.itextpdf.text.Image;
 import com.itextpdf.text.pdf.*;
 
+import java.awt.*;
+import java.io.File;
 import java.io.FileOutputStream;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.time.LocalDateTime;
@@ -35,12 +40,14 @@ public class PDFBill {
 
         generatePDFBill(bill);
 
+        openPDFBill();
+
     }
     public static void generatePDFBill(Bill bill){
         try{
             Document pdfDocument = new Document();
 
-            PdfWriter.getInstance(pdfDocument , new FileOutputStream("cuento\\factura.pdf"));
+            PdfWriter.getInstance(pdfDocument , new FileOutputStream(LocalPaths.PDFPATH+"factura.pdf"));
 
             pdfDocument.open();
 
@@ -214,6 +221,22 @@ public class PDFBill {
         totalTable.addCell(valueTotalCell);
 
         return totalTable;
+    }
+
+    public static void openPDFBill(){
+        try {
+            File billFile = new File(LocalPaths.PDFPATH+"factura.pdf");
+            if (!Desktop.isDesktopSupported()) {
+                System.out.println("Su sistema operativo no soporta Desktop");
+            }else{
+                Desktop desktop = Desktop.getDesktop();
+                if (billFile.exists()){
+                    desktop.open(billFile);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

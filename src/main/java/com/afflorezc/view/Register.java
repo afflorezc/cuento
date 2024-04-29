@@ -10,6 +10,7 @@ import com.afflorezc.model.JsonManagement;
 import com.afflorezc.view.components.ImageContainer;
 
 import javax.swing.*;
+import java.awt.*;
 
 public class Register extends javax.swing.JFrame {
 
@@ -47,8 +48,10 @@ public class Register extends javax.swing.JFrame {
         passwordTextField = new javax.swing.JPasswordField();
         linkLoginLabel = new javax.swing.JLabel();
         jPanel5 = new ImageContainer(LocalPaths.IMAGESPATH+"ciudad_dmc_registro_vertical.jpg");
+        closeButtonLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         setSize(new java.awt.Dimension(800, 500));
 
         jPanel4.setBackground(new java.awt.Color(248, 248, 248));
@@ -61,7 +64,7 @@ public class Register extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGap(0, 480, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -198,15 +201,36 @@ public class Register extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(74, 14, 14));
         jPanel5.setPreferredSize(new java.awt.Dimension(320, 600));
 
+        closeButtonLabel.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
+        closeButtonLabel.setForeground(new java.awt.Color(255, 255, 255));
+        closeButtonLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        closeButtonLabel.setText("X");
+        closeButtonLabel.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        closeButtonLabel.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                closeButtonLabelMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                closeButtonLabelMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                closeButtonLabelMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
         jPanel5Layout.setHorizontalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel5Layout.createSequentialGroup()
+                .addGap(0, 293, Short.MAX_VALUE)
+                .addComponent(closeButtonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
         jPanel5Layout.setVerticalGroup(
             jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 0, Short.MAX_VALUE)
+            .addGroup(jPanel5Layout.createSequentialGroup()
+                .addComponent(closeButtonLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -282,6 +306,23 @@ public class Register extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_linkLoginLabelMouseClicked
 
+    private void closeButtonLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonLabelMouseClicked
+        // TODO add your handling code here:
+        this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        this.dispose();
+    }//GEN-LAST:event_closeButtonLabelMouseClicked
+
+    private void closeButtonLabelMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonLabelMouseEntered
+        // TODO add your handling code here:
+        closeButtonLabel.setForeground(new Color(255, 0, 0));
+       
+    }//GEN-LAST:event_closeButtonLabelMouseEntered
+
+    private void closeButtonLabelMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_closeButtonLabelMouseExited
+        // TODO add your handling code here:
+        closeButtonLabel.setForeground(new Color(255, 255, 255));
+    }//GEN-LAST:event_closeButtonLabelMouseExited
+
     /**
      * @param args the command line arguments
      */
@@ -318,6 +359,7 @@ public class Register extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel closeButtonLabel;
     private javax.swing.JLabel errorLabel;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
