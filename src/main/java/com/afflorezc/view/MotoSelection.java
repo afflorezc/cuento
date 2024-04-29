@@ -236,7 +236,7 @@ public class MotoSelection extends JFrame {
 
         background.add(upperPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 30));
         
-        Image backgroundPicture = new ImageIcon("files\\img\\workshopScene.jpg").getImage();
+        Image backgroundPicture = new ImageIcon(LocalPaths.IMAGESPATH+"workshopScene.jpg").getImage();
 
         backgroundImage.setIcon(new ImageIcon(backgroundPicture)); 
         backgroundImage.setToolTipText("");
