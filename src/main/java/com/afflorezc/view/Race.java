@@ -21,9 +21,10 @@ public class Race extends JFrame{
 	private JButton raceButton;
 	private JButton nextButton;
 	
-	public Race(Styles styles) {
-		 
+	public Race() {
 		super("La gran carrera");
+		Styles styles = getStyles();
+
 		// Builder
 		builder = new ComponentsBuilder(styles);
 		// Main container
@@ -115,7 +116,7 @@ public class Race extends JFrame{
     public static void main(String[] args){
         
         Styles styles = getStyles();
-        new Race(styles);
+        new Race();
     }
     
     public static Styles getStyles(){

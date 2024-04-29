@@ -58,7 +58,7 @@ public class billFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         createPDFButton = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        openPDFButton1 = new javax.swing.JPanel();
+        nextFrameButton = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -145,11 +145,11 @@ public class billFrame extends javax.swing.JFrame {
             .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
-        openPDFButton1.setBackground(new java.awt.Color(169, 0, 42));
-        openPDFButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        openPDFButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        nextFrameButton.setBackground(new java.awt.Color(169, 0, 42));
+        nextFrameButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        nextFrameButton.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                openPDFButton1MouseClicked(evt);
+                nextFrameButtonMouseClicked(evt);
             }
         });
 
@@ -159,14 +159,14 @@ public class billFrame extends javax.swing.JFrame {
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel3.setText("Siguiente");
 
-        javax.swing.GroupLayout openPDFButton1Layout = new javax.swing.GroupLayout(openPDFButton1);
-        openPDFButton1.setLayout(openPDFButton1Layout);
-        openPDFButton1Layout.setHorizontalGroup(
-            openPDFButton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout nextFrameButtonLayout = new javax.swing.GroupLayout(nextFrameButton);
+        nextFrameButton.setLayout(nextFrameButtonLayout);
+        nextFrameButtonLayout.setHorizontalGroup(
+            nextFrameButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 158, Short.MAX_VALUE)
         );
-        openPDFButton1Layout.setVerticalGroup(
-            openPDFButton1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        nextFrameButtonLayout.setVerticalGroup(
+            nextFrameButtonLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jLabel3, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
         );
 
@@ -187,7 +187,7 @@ public class billFrame extends javax.swing.JFrame {
                 .addGap(107, 107, 107))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(openPDFButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(nextFrameButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(316, 316, 316))
         );
         jPanel1Layout.setVerticalGroup(
@@ -205,7 +205,7 @@ public class billFrame extends javax.swing.JFrame {
                         .addGap(80, 80, 80)
                         .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 53, Short.MAX_VALUE)
-                        .addComponent(openPDFButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(nextFrameButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(29, 29, 29))))
         );
 
@@ -246,12 +246,16 @@ public class billFrame extends javax.swing.JFrame {
 
     private void createPDFButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_createPDFButtonMouseClicked
         // TODO add your handling code here:
+        this.bill.calculateIVA();
+        this.bill.calculateBasePrice();
         PDFBill.generatePDFBill(this.bill);
     }//GEN-LAST:event_createPDFButtonMouseClicked
 
-    private void openPDFButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_openPDFButton1MouseClicked
+    private void nextFrameButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_nextFrameButtonMouseClicked
         // TODO add your handling code here:
-    }//GEN-LAST:event_openPDFButton1MouseClicked
+        this.dispose();
+        new Race();
+    }//GEN-LAST:event_nextFrameButtonMouseClicked
 
     /**
      * @param args the command line arguments
@@ -296,7 +300,7 @@ public class billFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel nextFrameButton;
     private javax.swing.JPanel openPDFButton;
-    private javax.swing.JPanel openPDFButton1;
     // End of variables declaration//GEN-END:variables
 }

@@ -49,7 +49,8 @@ public class Player extends javax.swing.JFrame {
                 e.printStackTrace();
             }
         }
-        new Menu(ExcelLoader.getMotorcicleData()).setVisible(true);
+        //new Menu(ExcelLoader.getMotorcicleData()).setVisible(true);
+        new Login(ExcelLoader.getMotorcicleData());
         dispose();
     }
     

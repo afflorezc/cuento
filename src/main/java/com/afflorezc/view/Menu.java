@@ -188,7 +188,7 @@ public class Menu extends javax.swing.JFrame {
     }                                   
 
     private void startButtonMouseClicked(java.awt.event.MouseEvent evt) {
-        new ChapterOne(motorcicles).setVisible(true);                                         
+        new ChapterOne(motorcicles).setVisible(true);
         this.dispose();
     }                                        
 

@@ -5,6 +5,8 @@ import java.awt.*;
 import javax.swing.*;
 import java.util.ArrayList;
 
+import com.afflorezc.controller.Bill;
+import com.afflorezc.controller.Item;
 import com.afflorezc.controller.LocalPaths;
 import com.afflorezc.model.VehicleInformation;
 
@@ -17,7 +19,9 @@ public class MotoSelection extends JFrame {
                                     LocalPaths.IMAGESPATH+"kawasaki-zx-10r-3.png"};
 
     ArrayList<VehicleInformation> motorcicles;
+    Bill bill;
     int index = 0;
+    private int motorciclesBuyed = 0;
     
     private JLabel backButton;
     private JPanel background;
@@ -41,6 +45,7 @@ public class MotoSelection extends JFrame {
 
         this.motorcicles = motorcicles;
         index = 0;
+        bill = new Bill("Motos INC", "800.197.268-4", "MotosINC@motosinc.com.co", "323 3851322");
         initComponents();
         this.updateMotorcicleData();
     }
@@ -274,8 +279,31 @@ public class MotoSelection extends JFrame {
         pack();
     }// </editor-fold>                               
 
-    private void buyButtonMouseClicked(java.awt.event.MouseEvent evt) {                                       
+    private void buyButtonMouseClicked(java.awt.event.MouseEvent evt) {
+        VehicleInformation currentMotorcicle = this.motorcicles.get(index);
+        Item currentMotorcicleBill = new Item(""+(motorciclesBuyed+1),currentMotorcicle.getTradeMark(),currentMotorcicle.getPrice());
+        if (motorciclesBuyed == 0){
+            tittleLabel.setText("Seleccione una Moto para Sheldon");
+            bill.addItem(currentMotorcicleBill);
+            motorciclesBuyed++;
 
+        }else if (motorciclesBuyed == 1) {
+            tittleLabel.setText("Seleccione una Moto para Howard");
+            bill.addItem(currentMotorcicleBill);
+            motorciclesBuyed++;
+
+        }else if (motorciclesBuyed == 2) {
+            bill.addItem(currentMotorcicleBill);
+            motorciclesBuyed++;
+
+            this.dispose();
+            new billFrame(this.bill);
+        }else if (motorciclesBuyed >= 3) {
+            this.dispose();
+            new billFrame(this.bill);
+        }else{
+            tittleLabel.setText("ha ocurrido un error, reinicie el programa");
+        }
     }                                      
 
     private void buyButtonMouseEntered(java.awt.event.MouseEvent evt) {                                       

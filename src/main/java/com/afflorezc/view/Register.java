@@ -21,7 +21,8 @@ public class Register extends javax.swing.JFrame {
     public Register(ArrayList<VehicleInformation> motorcicles) {
 
         this.motorcicles = motorcicles;
-        setLocationRelativeTo(null);
+
+        setLocation(300, 80);
         initComponents();
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -275,7 +276,7 @@ public class Register extends javax.swing.JFrame {
     private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMouseClicked
         
         String userName = userTextField.getText();
-        String userPassword = passwordTextField.getPassword().toString();
+        String userPassword = String.copyValueOf(passwordTextField.getPassword());
 
         if(userName.equals("") || userPassword.equals("") ||
                 userPassword.replaceAll(" ", "").equals("") ||
@@ -303,7 +304,7 @@ public class Register extends javax.swing.JFrame {
     private void linkLoginLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_linkLoginLabelMouseClicked
         // TODO add your handling code here:
         this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-        Login loginForm = new Login();
+        Login loginForm = new Login(this.motorcicles);
         this.dispose();
     }//GEN-LAST:event_linkLoginLabelMouseClicked
 
@@ -354,7 +355,7 @@ public class Register extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new Register().setVisible(true);
+                new Register(new ArrayList<VehicleInformation>()).setVisible(true);
             }
         });
     }

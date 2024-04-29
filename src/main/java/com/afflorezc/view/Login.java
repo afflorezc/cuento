@@ -269,7 +269,7 @@ public class Login extends javax.swing.JFrame {
     private void loginButtonMouseClicked(java.awt.event.MouseEvent evt) {
 
         String userName = userTextField.getText();
-        String userPassword = passwordTextField.getPassword().toString();
+        String userPassword = String.copyValueOf(passwordTextField.getPassword());
 
         if(userName.equals("") || userPassword.equals("") ||
                 userPassword.replaceAll(" ", "").equals("") ||
@@ -283,7 +283,12 @@ public class Login extends javax.swing.JFrame {
             if (accces == 1){
                 errorLabel.setText("");
                 //abre el siguiente formulario
-                new ChapterOne(motorcicles);
+
+                this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                new Menu(this.motorcicles).setVisible(true);
+                this.dispose();
+
+                //
             }else{
                 errorLabel.setText("La contraseña o el usuario son incorrectos");
             }
