@@ -3,7 +3,6 @@ package com.afflorezc.controller;
 import java.io.File;
 import java.net.MalformedURLException;
 
-import javafx.application.Platform;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 

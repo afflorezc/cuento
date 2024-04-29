@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import com.afflorezc.controller.LocalPaths;
 import com.afflorezc.controller.TextAnimationPause;
 import com.afflorezc.model.VehicleInformation;
-import com.afflorezc.Main;
 import com.afflorezc.controller.AudioPlayer;
 import com.afflorezc.view.components.ImageContainer;
+
 
 public class ChapterTwo extends javax.swing.JFrame {
 

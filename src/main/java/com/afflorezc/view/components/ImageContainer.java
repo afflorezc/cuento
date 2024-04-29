@@ -283,8 +283,6 @@ public class ImageContainer extends JPanel{
         int x = initCoords[0];
         int y = initCoords[1];
 
-        System.out.println("pintando");
-
         g.drawImage(this.image, x, y, currentWidth, currentHeight, this);
         setOpaque(false);
         super.paint(g);

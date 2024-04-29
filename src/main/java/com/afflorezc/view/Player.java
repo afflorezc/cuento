@@ -6,7 +6,6 @@ import java.net.MalformedURLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-import javafx.application.Platform;
 import javafx.embed.swing.JFXPanel;
 import javafx.scene.Group;
 import javafx.scene.Scene;
@@ -20,6 +19,7 @@ import com.afflorezc.controller.ExcelLoader;
 public class Player extends javax.swing.JFrame {
 
     int xMouse, yMouse;
+    private MediaPlayer player;
 
      // Variables declaration - do not modify                     
      private javax.swing.JPanel background;
@@ -41,42 +41,42 @@ public class Player extends javax.swing.JFrame {
     }
 
     private void endVideo(){
+        
+        while(ExcelLoader.getMotorcicleData() == null){
+            try {
+                Thread.sleep(50);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
         new Menu(ExcelLoader.getMotorcicleData()).setVisible(true);
         dispose();
     }
     
     private void createScene(){
-        Platform.runLater(new Runnable() {
-            
-            @Override
-            public void run(){
 
-                File file = new File(LocalPaths.VIDEOS_PATH + "SheldonDante.mp4");
-                MediaPlayer video;
-                try {
-                    String urlFile = file.toURI().toURL().toString();
-                    video = new MediaPlayer(new Media(urlFile));
-                } catch (MalformedURLException ex) {
-                    Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
-                    return;
-                }
-                MediaView view = new MediaView(video);
-                view.setFitHeight(600);
-                view.setFitWidth(800);
-                view.setPreserveRatio(false);
-                jfxPanel.setScene(new Scene(new Group(view)));
-                video.setVolume(0.7);
-                video.setCycleCount(1);
-                video.play();
-                video.setOnEndOfMedia(new Runnable() {
-                    @Override 
-                    public void run(){
-                        video.dispose();
-                        endVideo();
-                    }
-                });
+        File file = new File(LocalPaths.VIDEOS_PATH + "SheldonDante.mp4");
+        try {
+            String urlFile = file.toURI().toURL().toString();
+            player = new MediaPlayer(new Media(urlFile));
+        } catch (MalformedURLException ex) {
+            Logger.getLogger(Player.class.getName()).log(Level.SEVERE, null, ex);
+            return;
+        }
+        MediaView view = new MediaView(player);
+        view.setFitHeight(600);
+        view.setFitWidth(800);
+        view.setPreserveRatio(false);
+        jfxPanel.setScene(new Scene(new Group(view)));
+        player.setVolume(0.7);
+        player.setCycleCount(1);
+        player.play();
+        player.setOnEndOfMedia(new Runnable() {
+            @Override 
+            public void run(){
+                endVideo();
             }
-        });  
+        });
     }
                          
     private void initComponents() {

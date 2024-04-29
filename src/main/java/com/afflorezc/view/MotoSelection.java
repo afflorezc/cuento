@@ -29,6 +29,7 @@ public class MotoSelection extends JFrame {
     private JLabel modelInfo;
     private JLabel modelLabel;
     private JLabel nextButton;
+    private JLabel buyButton;
     private JLabel powerInfo;
     private JLabel powerLabel;
     private JLabel priceInfo;
@@ -42,12 +43,6 @@ public class MotoSelection extends JFrame {
         index = 0;
         initComponents();
         this.updateMotorcicleData();
-        VehicleInformation currentMotorcicle = motorcicles.get(index);
-        modelInfo.setText(currentMotorcicle.getTradeMark() + " " + currentMotorcicle.getDescription());
-        powerInfo.setText("" + currentMotorcicle.getPower());
-        cylinderInfo.setText("" + currentMotorcicle.getCylinderCapacity());
-        priceInfo.setText("" + currentMotorcicle.getPrice());
-
     }
 
     public void updateMotorcicleData(){
@@ -76,6 +71,7 @@ public class MotoSelection extends JFrame {
         cylinderInfo = new javax.swing.JLabel();
         priceInfo = new javax.swing.JLabel();
         backButton = new javax.swing.JLabel();
+        buyButton = new JLabel();
         nextButton = new javax.swing.JLabel();
         imageContainer = new JLabel();
         upperPanel = new javax.swing.JPanel();
@@ -140,6 +136,25 @@ public class MotoSelection extends JFrame {
         priceInfo.setText("priceInfo");
         priceInfo.setToolTipText("");
         background.add(priceInfo, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 200, 600, 20));
+
+        buyButton.setFont(new java.awt.Font("High Tower Text", 0, 18)); // NOI18N
+        buyButton.setForeground(new java.awt.Color(255, 255, 255));
+        buyButton.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        buyButton.setText("Comprar");
+        buyButton.setBorder(javax.swing.BorderFactory.createEtchedBorder());
+        buyButton.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        buyButton.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                buyButtonMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                buyButtonMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                buyButtonMouseExited(evt);
+            }
+        });
+        background.add(buyButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 490, 140, 40));
 
         backButton.setFont(new java.awt.Font("High Tower Text", 1, 48)); // NOI18N
         backButton.setForeground(new java.awt.Color(138, 43, 43));
@@ -258,6 +273,26 @@ public class MotoSelection extends JFrame {
 
         pack();
     }// </editor-fold>                               
+
+    private void buyButtonMouseClicked(java.awt.event.MouseEvent evt) {                                       
+
+    }                                      
+
+    private void buyButtonMouseEntered(java.awt.event.MouseEvent evt) {                                       
+        this.buyButton.setBackground(Color.red);
+        this.buyButton.setForeground(Color.gray);
+        if(!this.buyButton.isOpaque()){
+            this.buyButton.setOpaque(true);
+        }
+    }                                      
+
+    private void buyButtonMouseExited(java.awt.event.MouseEvent evt) {                                      
+        this.buyButton.setBackground(Color.white);
+        this.buyButton.setForeground(Color.white);
+        if(this.buyButton.isOpaque()){
+            this.buyButton.setOpaque(false);
+        }
+    }             
 
     private void backButtonMouseClicked(java.awt.event.MouseEvent evt) {                                        
        

@@ -2,6 +2,8 @@ package com.afflorezc;
 
 import com.afflorezc.view.Player;
 
+import javafx.application.Platform;
+
 public class Main {
 
      /**
@@ -29,6 +31,7 @@ public class Main {
         java.awt.EventQueue.invokeLater(new Runnable() {
             @Override
             public void run() {
+                Platform.startup(()->{});
                 new Player().setVisible(true);
             }
         });

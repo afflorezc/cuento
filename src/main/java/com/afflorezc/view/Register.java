@@ -6,20 +6,22 @@ package com.afflorezc.view;
 
 import com.afflorezc.controller.LocalPaths;
 import com.afflorezc.controller.Session;
+import com.afflorezc.model.VehicleInformation;
 import com.afflorezc.model.JsonManagement;
 import com.afflorezc.view.components.ImageContainer;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class Register extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Register
-     */
-    public Register() {
+    private ArrayList<VehicleInformation> motorcicles;
 
-        setLocation(300, 80);
+    public Register(ArrayList<VehicleInformation> motorcicles) {
+
+        this.motorcicles = motorcicles;
+        setLocationRelativeTo(null);
         initComponents();
         setVisible(true);
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -267,14 +269,13 @@ public class Register extends javax.swing.JFrame {
     }//GEN-LAST:event_userTextFieldActionPerformed
 
     private void passwordTextFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordTextFieldActionPerformed
-        // TODO add your handling code here:
+       
     }//GEN-LAST:event_passwordTextFieldActionPerformed
 
     private void registerButtonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_registerButtonMouseClicked
-        // TODO add your handling code here:
-        // TODO add your handling code here:
+        
         String userName = userTextField.getText();
-        String userPassword = passwordTextField.getText();
+        String userPassword = passwordTextField.getPassword().toString();
 
         if(userName.equals("") || userPassword.equals("") ||
                 userPassword.replaceAll(" ", "").equals("") ||
@@ -292,7 +293,7 @@ public class Register extends javax.swing.JFrame {
                 JsonManagement.addSession(currentSession);
                 //abre el formulario de login
                 this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-                Login loginForm = new Login();
+                Login loginForm = new Login(motorcicles);
                 this.dispose();
             }
         }
