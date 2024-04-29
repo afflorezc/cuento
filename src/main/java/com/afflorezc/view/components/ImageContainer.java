@@ -26,7 +26,10 @@ public class ImageContainer extends JPanel{
 
     // constructores
 
+
     public ImageContainer(String imageLocation, int width, int height) {
+        super();
+
         this.imageHeight = height;
         this.imageWidth = width;
 
@@ -40,6 +43,8 @@ public class ImageContainer extends JPanel{
     }
 
     public ImageContainer(String imageLocation) {
+        super();
+
         this.image = new ImageIcon(imageLocation).getImage();
 
         this.widthAdjustmentPercent = 1;
@@ -50,6 +55,8 @@ public class ImageContainer extends JPanel{
     }
 
     public ImageContainer(Image image, float widthAdjustmentPercent, float heightAdjustmentPercent) {
+        super();
+
         this.image = image;
         setWidthAdjustmentPercent(widthAdjustmentPercent);
         setHeightAdjustmentPercent(heightAdjustmentPercent);
@@ -277,6 +284,8 @@ public class ImageContainer extends JPanel{
         int currentHeight = size[1];
         int x = initCoords[0];
         int y = initCoords[1];
+
+        System.out.println("pintando");
 
         g.drawImage(this.image, x, y, currentWidth, currentHeight, this);
         setOpaque(false);

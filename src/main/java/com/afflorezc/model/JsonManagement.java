@@ -116,7 +116,7 @@ public class JsonManagement {
         return typeSession;
     }
 
-    public static int equalSession(Session session, String currentName, String currentPasword){
+    private static int equalSession(Session session, String currentName, String currentPasword){
         if(session.getName().equals(currentName)){
             if(session.getPassword().equals(currentPasword)){
                 return 1;   //si el nombre de usuario y la contraseña coniciden retorna 1
@@ -129,7 +129,7 @@ public class JsonManagement {
     }
 
 
-    public static  void deleteJson(){
+    private static void deleteJson(){
         try {
             Files.delete(Paths.get(JSONPATH));
         } catch (IOException e) {

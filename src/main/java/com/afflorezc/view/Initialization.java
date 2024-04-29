@@ -2,7 +2,7 @@ package com.afflorezc.view;
 
 import javax.swing.*;
 import java.awt.*;
-//import javafx.embed.swing.JFXPanel;
+import javafx.embed.swing.JFXPanel;
 
 
 import java.util.ArrayList;
