@@ -266,8 +266,6 @@ public class ImageContainer extends JPanel{
         return size;
     }
 
-
-
     @Override
     public void paint(Graphics g){
         int[] size = getImageSize();

@@ -6,11 +6,8 @@ import java.awt.*;
 import com.afflorezc.controller.LocalPaths;
 import com.afflorezc.view.components.*;
 
-
-
 public class Principal extends  JFrame{
 
-    
     public Principal(){
         super("Principal");
 

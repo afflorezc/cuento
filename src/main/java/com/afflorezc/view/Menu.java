@@ -44,6 +44,7 @@ public class Menu extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 600));
         setUndecorated(true);
         setResizable(false);
+        setLocationRelativeTo(null);
 
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setMaximumSize(new java.awt.Dimension(800, 600));
@@ -186,8 +187,8 @@ public class Menu extends javax.swing.JFrame {
         this.exitBtn.setForeground(Color.white);
     }                                   
 
-    private void startButtonMouseClicked(java.awt.event.MouseEvent evt) {                                         
-        new MotoSelection(motorcicles).setVisible(true);
+    private void startButtonMouseClicked(java.awt.event.MouseEvent evt) {
+        new ChapterOne(motorcicles).setVisible(true);                                         
         this.dispose();
     }                                        
 
@@ -226,8 +227,4 @@ public class Menu extends javax.swing.JFrame {
            this.settingsBtn.setOpaque(false);
        }
     }                                       
-
-    /**
-     * @param args the command line arguments
-     */
 }

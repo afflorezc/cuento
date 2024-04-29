@@ -40,9 +40,9 @@ public class Player extends javax.swing.JFrame {
         this.videoPanel.add(jfxPanel, BorderLayout.CENTER);
     }
 
-    public void endVideo(){
+    private void endVideo(){
         new Menu(ExcelLoader.getMotorcicleData()).setVisible(true);
-        this.dispose();
+        dispose();
     }
     
     private void createScene(){
@@ -50,7 +50,7 @@ public class Player extends javax.swing.JFrame {
             
             @Override
             public void run(){
-                File file = new File(LocalPaths.RELATIVEPATH + "files\\video\\SheldonDante.mp4");
+                File file = new File(LocalPaths.VIDEOS_PATH + "SheldonDante.mp4");
                 MediaPlayer video;
                 try {
                     String urlFile = file.toURI().toURL().toString();
@@ -70,6 +70,7 @@ public class Player extends javax.swing.JFrame {
                 video.setOnEndOfMedia(new Runnable() {
                     @Override 
                     public void run(){
+                        video.dispose();
                         endVideo();
                     }
                 });
@@ -208,42 +209,5 @@ public class Player extends javax.swing.JFrame {
     private void upperPanelMousePressed(java.awt.event.MouseEvent evt) {                                        
         xMouse = evt.getX();
         yMouse = evt.getY();
-    }                                       
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Player.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Player.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Player.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Player.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-      
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            @Override
-            public void run() {
-                new Player().setVisible(true);
-            }
-        });
-    }                  
+    }                                                     
 }
