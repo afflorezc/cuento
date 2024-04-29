@@ -1,15 +1,18 @@
 package com.afflorezc.view;
 
 import com.afflorezc.controller.LocalPaths;
+import com.afflorezc.model.VehicleInformation;
 
 import java.awt.*;
+import java.util.ArrayList;
+
 //import java.awt.event.*;
 import javax.swing.*;
 
 public class Menu extends javax.swing.JFrame {
 
     int xMouse, yMouse;
-    
+    ArrayList<VehicleInformation> motorcicles;
     // Variables declaration - do not modify                     
     private JPanel background;
     private JLabel backgroundImage;
@@ -19,7 +22,9 @@ public class Menu extends javax.swing.JFrame {
     private JPanel upperBar;
     // End of variables declaration   
 
-    public Menu() {
+    public Menu(ArrayList<VehicleInformation> motorcicles) {
+
+        this.motorcicles = motorcicles;
         initComponents();
     }
                         
@@ -39,6 +44,7 @@ public class Menu extends javax.swing.JFrame {
         setMinimumSize(new java.awt.Dimension(800, 600));
         setUndecorated(true);
         setResizable(false);
+        setLocationRelativeTo(null);
 
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setMaximumSize(new java.awt.Dimension(800, 600));
@@ -178,12 +184,12 @@ public class Menu extends javax.swing.JFrame {
     }                                    
 
     private void exitBtnMouseExited(java.awt.event.MouseEvent evt) {                                    
-        // TODO add your handling code here:
         this.exitBtn.setForeground(Color.white);
     }                                   
 
-    private void startButtonMouseClicked(java.awt.event.MouseEvent evt) {                                         
-        
+    private void startButtonMouseClicked(java.awt.event.MouseEvent evt) {
+        new ChapterOne(motorcicles).setVisible(true);                                         
+        this.dispose();
     }                                        
 
     private void startButtonMouseEntered(java.awt.event.MouseEvent evt) {                                         
@@ -203,7 +209,7 @@ public class Menu extends javax.swing.JFrame {
     }                                       
 
     private void settingsBtnMouseClicked(java.awt.event.MouseEvent evt) {                                         
-        // TODO add your handling code here:
+        
     }                                        
 
     private void settingsBtnMouseEntered(java.awt.event.MouseEvent evt) {                                         
@@ -221,40 +227,4 @@ public class Menu extends javax.swing.JFrame {
            this.settingsBtn.setOpaque(false);
        }
     }                                       
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(Menu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new Menu().setVisible(true);
-            }
-        });
-    }                
 }

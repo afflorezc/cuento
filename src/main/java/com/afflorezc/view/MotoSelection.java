@@ -88,6 +88,7 @@ public class MotoSelection extends JFrame {
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(800, 600));
         setResizable(false);
+        setLocationRelativeTo(null);
 
         background.setBackground(new java.awt.Color(255, 255, 255));
         background.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());

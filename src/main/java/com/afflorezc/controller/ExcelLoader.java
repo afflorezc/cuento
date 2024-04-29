@@ -13,7 +13,7 @@ public class ExcelLoader extends SwingWorker<Void, Void> {
 
     static final ArrayList<String> DATA_SET_FILTER = new ArrayList<String>(
                                                    Arrays.asList("KAWASAKI", "MOTOCICLETA", "NINJA"));
-    static final String PATH = "files\\Guia_Excel_331.xls";
+    static final String PATH = LocalPaths.EXCELPATH+"Guia_Excel_331.xls";
     static final String SHEET_NAME = "Codigos";
     private static ArrayList<VehicleInformation> motorcicleData;
 

@@ -250,7 +250,15 @@ public void setFinalResult() {
 		
 		resultsTable.setModel(dataModel);
 	}
-	
+
+	public void pause(){
+		try {
+			Thread.currentThread().wait();
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
+	}
+
 	@Override
 	public void run() {
 		

@@ -31,14 +31,14 @@
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-swing</artifactId>
-            <version>22.0.1</version>
+            <version>21.0.3</version>
             <type>jar</type>
         </dependency>
         <!-- javafx-->
         <dependency>
             <groupId>org.openjfx</groupId>
             <artifactId>javafx-media</artifactId>
-            <version>22.0.1</version>
+            <version>21.0.3</version>
             <type>jar</type>
         </dependency>
         <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->

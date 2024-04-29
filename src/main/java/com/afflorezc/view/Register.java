@@ -272,7 +272,7 @@ public class Register extends javax.swing.JFrame {
 
     private void linkLoginLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_linkLoginLabelMouseClicked
         // TODO add your handling code here:
-        
+
     }//GEN-LAST:event_linkLoginLabelMouseClicked
 
     /**
