@@ -18,14 +18,15 @@ import java.util.ArrayList;
 public class PDFBill {
 
     public static void main(String[] args) {
-        Bill bill = new Bill("motos", "34636357", "empresaDeMotos@gmail.com","355 68332224");
-        Item item1 = new Item("1","moto1",33333);
-        Item item2 = new Item("2","moto2",122343);
-        Item item3 = new Item("3","moto3",66789);
-        Item item4 = new Item("4","moto4",234865);
-        Item item5 = new Item("5","moto5",99876);
-        Item item6 = new Item("6","moto6",397486);
-        Item item7 = new Item("7","moto7",9557657);
+        Bill bill = new Bill("", "", "","");
+
+        Item item1 = new Item("","moto1",33333);
+        Item item2 = new Item("","moto2",122343);
+        Item item3 = new Item("","moto3",66789);
+        Item item4 = new Item("","moto4",234865);
+        Item item5 = new Item("","moto5",99876);
+        Item item6 = new Item("","moto6",397486);
+        Item item7 = new Item("","moto7",9557657);
 
         bill.addItem(item1);
         bill.addItem(item2);
@@ -51,7 +52,7 @@ public class PDFBill {
 
             pdfDocument.open();
 
-            Image logo = Image.getInstance("cuento\\files\\img\\logo4.jpg"); //creando la imagen del logo
+            Image logo = Image.getInstance(LocalPaths.IMAGESPATH+"logo4.jpg"); //creando la imagen del logo
             logo.scaleAbsolute(50,50);
 
             PdfPTable header = new PdfPTable(2); // creando el header
