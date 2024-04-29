@@ -25,6 +25,7 @@ public class Login extends javax.swing.JFrame {
         initComponents();
 
         setLocation(300, 80);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         setVisible(true);
         setSize(800,600);
     }
@@ -274,6 +275,9 @@ public class Login extends javax.swing.JFrame {
 
     private void linkRegisterLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_linkRegisterLabelMouseClicked
         // TODO add your handling code here:
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        Register registerForm = new Register();
+        this.dispose();
     }//GEN-LAST:event_linkRegisterLabelMouseClicked
 
     /**

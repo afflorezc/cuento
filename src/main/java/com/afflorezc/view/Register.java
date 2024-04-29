@@ -17,9 +17,11 @@ public class Register extends javax.swing.JFrame {
      * Creates new form Register
      */
     public Register() {
-        initComponents();
 
-        ImageContainer devilMayCryPhoto = new ImageContainer(LocalPaths.IMAGESPATH+"dante-devil-may-cry-wall-paper.jpg");
+        setLocation(300, 80);
+        initComponents();
+        setVisible(true);
+        setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
     }
 
     /**
@@ -264,7 +266,10 @@ public class Register extends javax.swing.JFrame {
             }else{
                 errorLabel.setText("");
                 JsonManagement.addSession(currentSession);
-                //abre el siguiente formulario
+                //abre el formulario de login
+                this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+                Login loginForm = new Login();
+                this.dispose();
             }
         }
 
@@ -272,7 +277,9 @@ public class Register extends javax.swing.JFrame {
 
     private void linkLoginLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_linkLoginLabelMouseClicked
         // TODO add your handling code here:
-
+        this.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
+        Login loginForm = new Login();
+        this.dispose();
     }//GEN-LAST:event_linkLoginLabelMouseClicked
 
     /**
