@@ -41,6 +41,9 @@
           <Color blue="ad" green="e9" red="ff" type="rgb"/>
         </Property>
       </Properties>
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new ImageContainer(LocalPaths.IMAGESPATH+&quot;concesionario.jpg&quot;)"/>
+      </AuxValues>
 
       <Layout>
         <DimensionLayout dim="0">

@@ -18,32 +18,6 @@ public class JsonManagement {
      */
     public static final String JSONPATH = LocalPaths.JSONPATH+"sessions.json";
 
-    public static void main(String[] args) {
-        /*
-        Session session1 = new Session("alejandro", "redificilxd");
-        Session session2 = new Session("pedro", "redificilxd2");
-        Session session3 = new Session("ui", "redificilxd");
-        Session session4 = new Session("mariana", "facil");
-        Session session5 = new Session("manuela", "12345");
-        Session session6 = new Session("andres", "contrasenia");
-
-
-
-        addSession(session1);
-        addSession(session2);
-        addSession(session3);
-        addSession(session4);
-        addSession(session5);
-        addSession(session6);
-        */
-
-        Session sessionInit = new Session("alejandro", "redificilxd");
-
-        int numSesion = searchUser(sessionInit);
-        System.out.println(numSesion);
-
-    }
-
 
     public static void addSession(Session sesion){
         Gson gson = new Gson();

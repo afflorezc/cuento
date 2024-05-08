@@ -9,7 +9,7 @@
             "type": "java",
             "name": "Launch with Arguments Prompt",
             "request": "launch",
-            "mainClass": "com.afflorezc.view.Player",
+            "mainClass": "com.afflorezc.view.Main",
             "args": [
                 "--module-path",
                 "C:\\Users\\admiin\\.m2\\repository\\org\\openjfx",
